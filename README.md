@@ -1,17 +1,27 @@
-# Spring AI RAG Demo
+# API Documentation
 
-This repository showcases the API endpoints for text ingestion and question asking using Spring AI RAG.
+## Overview
+This project provides an API for text and PDF file ingestion and question answering using the RAG (Retrieval-Augmented Generation) model.
 
-## API Endpoints
+## Endpoints
 
-### 1. Text Ingestion
-- **Endpoint:** `POST /rag/ingest`
-- **Description:** Ingests plain text for processing.
+### POST /rag/ingest
+- **Description**: Upload text and PDF files for processing.
+- **Request Body**: 
+  - `file`: The file to be uploaded (can be text or PDF).
+- **Response**: 
+  - `200 OK`: The file has been successfully ingested.
+  - `400 Bad Request`: Invalid file type or other errors.
 
-### 2. PDF File Ingestion
-- **Endpoint:** `POST /rag/ingest`
-- **Description:** Ingests PDF files using multipart/form-data.
+### GET /rag/ask
+- **Description**: Ask a question using the ingested data.
+- **Request Parameters**: 
+  - `question`: The question to be answered based on the ingested files.
+- **Response**: 
+  - `200 OK`: The answer to the question.
+  - `400 Bad Request`: Invalid question format.
+  - `404 Not Found`: No data available to answer the question.
 
-### 3. Question Asking
-- **Endpoint:** `GET /rag/ask`
-- **Description:** Retrieve answers based on provided questions.
+## Project Details
+- **Owner**: Arun-Kulkarni
+- **Repository**: spring-ai-rag-demo
